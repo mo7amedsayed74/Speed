@@ -282,8 +282,8 @@ class AppCubit extends Cubit<AppStates> {
   List<UserData> allUsers = [];
 
   void getAllUsers() {
-    emit(GetAllUsersLoadingState());
     allUsers.clear();
+    emit(GetAllUsersLoadingState());
     FirebaseFirestore.instance.collection('users').get().then((value) {
       for (var element in value.docs) {
         if (element.id == userData.uId) {
